@@ -1,18 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <PadreDeportesVue />
-  <HijoDeportesVue />
 </template>
 
 <script>
-import HijoDeportesVue from "./components/HijoDeportes.vue";
 import PadreDeportesVue from "./components/PadreDeportes.vue";
 
 export default {
   name: "App",
   components: {
     PadreDeportesVue,
-    HijoDeportesVue,
   },
 };
 </script>
