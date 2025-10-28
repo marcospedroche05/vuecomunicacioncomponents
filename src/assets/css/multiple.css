@@ -446,3 +446,68 @@ form::after {
   0%, 90%, 100% { opacity: 0; }
   95% { opacity: 1; }
 }
+
+/* EXPLOSIÓN DE CALAVERAS AL HACER HOVER EN EL DIV */
+div:hover::before {
+  animation: skullExplosion 0.5s ease-out infinite;
+  font-size: 60px;
+}
+
+div:hover::after {
+  animation: skullExplosion 0.5s ease-out infinite;
+  animation-delay: 0.25s;
+  font-size: 60px;
+}
+
+@keyframes skullExplosion {
+  0% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% { 
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(1) rotate(360deg);
+    opacity: 0.4;
+  }
+}
+
+/* CALAVERAS CAYENDO DESDE ARRIBA */
+@keyframes skullRain {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* EFECTO DE CALAVERAS EN EL FONDO DEL BODY */
+body {
+  position: relative;
+}
+
+/* Más calaveras decorativas en esquinas */
+@media (min-width: 768px) {
+  body {
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+      linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
+  }
+  
+  body::before {
+    content: "💀💀💀💀💀";
+    font-size: 350px;
+  }
+}

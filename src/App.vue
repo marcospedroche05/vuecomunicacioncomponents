@@ -1,14 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <SelectMultipleVue/>
+  <!-- <SelectMultipleVue/> -->
+  <EjemploCheckboxVue/>
+
 </template>
 
 <script>
-import SelectMultipleVue from './components/SelectMultiple.vue';
+import EjemploCheckboxVue from './components/EjemploCheckbox.vue';
+// import SelectMultipleVue from './components/SelectMultiple.vue';
 export default {
   name: "App",
   components: {
-    SelectMultipleVue
+    // SelectMultipleVue
+    EjemploCheckboxVue
   },
 };
 </script>
