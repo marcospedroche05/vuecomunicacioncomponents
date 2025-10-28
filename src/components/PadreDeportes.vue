@@ -1,9 +1,10 @@
 <template>
   <div>
     <h1>Padre deportes</h1>
+    <h2 v-if="favorito" >Tu deporte favorito es <span style="color: orange">{{favorito}}</span></h2>
     <ul>
       <li v-for="deporte in deportes" :key="deporte">
-        <HijoDeportesVue :nombredeporte="deporte" />
+        <HijoDeportesVue :nombredeporte="deporte" v-on:seleccionaFav="seleccionaFav"/>
       </li>
     </ul>
   </div>
@@ -20,8 +21,15 @@ export default {
   data() {
     return {
       deportes: ["Futbol", "Baloncesto", "Rugby", "Tenis"],
+      favorito: ""
     };
   },
+  methods: {
+    seleccionaFav(deporte){
+      this.favorito = deporte;
+    }
+  }
+
 };
 </script>
 
