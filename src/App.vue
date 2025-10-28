@@ -1,15 +1,14 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <ComicsComponentVue/>
+  <SelectMultipleVue/>
 </template>
 
 <script>
-import ComicsComponentVue from './components/ComicsComponent.vue';
-
+import SelectMultipleVue from './components/SelectMultiple.vue';
 export default {
   name: "App",
   components: {
-    ComicsComponentVue
+    SelectMultipleVue
   },
 };
 </script>
