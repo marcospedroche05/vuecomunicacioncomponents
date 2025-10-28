@@ -320,23 +320,58 @@ button:active {
 }
 
 h3 {
-  font-family: 'Creepster', cursive;
-  font-size: 2em;
+  font-family: 'Nosifer', cursive;
+  font-size: 2.2em;
   color: #ff6600;
   text-shadow: 
     0 0 10px #ff6600,
     0 0 20px #ff0000,
+    0 0 30px #ff0000,
     3px 3px 10px #000000;
   margin-top: 30px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px dashed #ff0000;
+  background: 
+    rgba(0, 0, 0, 0.9),
+    radial-gradient(circle, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
+  border: 3px double #ff0000;
   border-radius: 10px;
   animation: messageShake 0.5s ease-in-out infinite;
   min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* CALAVERAS DECORATIVAS EN EL MENSAJE */
+h3::before {
+  content: "💀💀💀";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  animation: topSkullsWave 2s ease-in-out infinite;
+}
+
+h3::after {
+  content: "💀💀💀";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  animation: bottomSkullsWave 2s ease-in-out infinite;
+}
+
+@keyframes topSkullsWave {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px) rotate(5deg); }
+}
+
+@keyframes bottomSkullsWave {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(5px) rotate(-5deg); }
 }
 
 @keyframes messageShake {
@@ -345,32 +380,65 @@ h3 {
   75% { transform: translateX(2px) rotate(1deg); }
 }
 
-/* Efectos de calaveras flotantes */
+/* Efectos de calaveras flotantes MULTIPLICADAS */
 div::before,
 div::after {
   position: absolute;
-  font-size: 40px;
+  font-size: 50px;
   animation: floatSkull 4s ease-in-out infinite;
-  opacity: 0.3;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
 }
 
 div::before {
-  content: "💀";
-  top: 20px;
-  left: 20px;
+  content: "💀💀💀";
+  top: 10px;
+  left: 10px;
   animation-delay: 0s;
 }
 
 div::after {
-  content: "💀";
-  bottom: 20px;
-  right: 20px;
+  content: "💀💀💀";
+  bottom: 10px;
+  right: 10px;
   animation-delay: 2s;
 }
 
 @keyframes floatSkull {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+  }
+  50% { 
+    transform: translateY(-30px) rotate(180deg) scale(1.2);
+    filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1)) drop-shadow(0 0 60px rgba(139, 0, 0, 0.8));
+  }
+}
+
+/* CALAVERAS ADICIONALES ORBITANDO */
+form::before,
+form::after {
+  content: "💀";
+  position: absolute;
+  font-size: 40px;
+  opacity: 0.5;
+  animation: orbitSkull 8s linear infinite;
+}
+
+form::before {
+  top: -30px;
+  right: -30px;
+}
+
+form::after {
+  bottom: -30px;
+  left: -30px;
+  animation-direction: reverse;
+}
+
+@keyframes orbitSkull {
+  0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
 }
 
 /* Rayos decorativos */
