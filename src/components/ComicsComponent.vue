@@ -1,8 +1,25 @@
 <template>
   <div>
     <h1>Comics:</h1>
-    <div id="comics" v-for="comic in comics" :key="comic">
-        <ComicComponentVue :comic="comic"/>
+    <div>
+        <form v-on:submit.prevent="createComic()">
+            <label>Titulo: </label>
+            <input type="text" v-model="comicForm.titulo"/>
+            <label>Imagen: </label>
+            <input type="text" v-model="comicForm.imagen"/>
+            <label>Descripcion: </label>
+            <input type="text" v-model="comicForm.descripcion"/>
+            <label>Año: </label>
+            <input type="number" v-model="comicForm.year"/>
+            <button>Nuevo comic: </button>
+        </form>
+    </div>
+    <div v-for="(comic, index) in comics" :key="comic">
+      <ComicComponentVue :comic="comic" v-on:obtenerfav="obtenerFav" :index="index" v-on:deletecomic="deleteComic"/>
+    </div>
+    <hr/>
+    <div style="background-color: lightblue" v-if="comicFavorito">
+        <ComicComponentVue :comic="comicFavorito"/>
     </div>
   </div>
 </template>
@@ -14,8 +31,25 @@ export default {
   components: {
     ComicComponentVue,
   },
+  methods: {
+    obtenerFav(favorito) {
+        this.comicFavorito = favorito;
+    },
+    createComic() {
+        this.comics.push(this.comicForm);
+    },
+    deleteComic(index){
+        this.comics.splice(index, 1);
+    }
+  },
   data() {
     return {
+        comicForm:{
+            titulo: "",
+            imagen: "",
+            descripcion: "",
+            year: 0
+        },
       comics: [
         {
           titulo: "Spiderman",
@@ -60,6 +94,7 @@ export default {
           year: 2001,
         },
       ],
+      comicFavorito: null
     };
   },
 };
