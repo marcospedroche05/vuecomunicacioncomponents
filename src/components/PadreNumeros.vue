@@ -3,7 +3,7 @@
     <h1>Numeros Padre</h1>
     <h3 style="color: red; font-weigth: bold">La suma es: {{suma}}</h3>
     <button @click="nuevoAleatorio">Nuevo Número</button>
-    <div v-if="numeros.length > 0">
+    <div>
         <HijoNumeroVue  v-for="num in numeros" :key="num" :numerohijo="num" v-on:seleccionaNum="seleccionaNum"/>
     </div>
   </div>
