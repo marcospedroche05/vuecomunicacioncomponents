@@ -1,15 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <PadreDeportesVue />
+  <PadreNumerosVue/>
 </template>
 
 <script>
-import PadreDeportesVue from "./components/PadreDeportes.vue";
+import PadreNumerosVue from './components/PadreNumeros.vue';
 
 export default {
   name: "App",
   components: {
-    PadreDeportesVue,
+    PadreNumerosVue
   },
 };
 </script>
