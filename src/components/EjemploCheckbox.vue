@@ -5,7 +5,7 @@
         <button>Generar Checkbox</button><br/>
         <div v-for="num in numeros" :key="num" style="display: inline">
             <label>{{num}}</label>
-            <input type="checkbox" v-on:click="sumar" :value="num"/>
+            <input type="checkbox" v-on:change="sumar" :value="num"/>
         </div>
     </form>
     <h2 style="color:blue">La suma seleccionada es {{suma}}</h2>
