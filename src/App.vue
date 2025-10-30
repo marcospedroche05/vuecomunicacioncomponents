@@ -1,18 +1,20 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <SelectMultipleVue/> -->
-  <EjemploCheckboxVue/>
-
+  <!-- <EjemploCheckboxVue/> -->
+  <MenuComponentVue/>
 </template>
 
 <script>
-import EjemploCheckboxVue from './components/EjemploCheckbox.vue';
+// import EjemploCheckboxVue from './components/EjemploCheckbox.vue';
+import MenuComponentVue from './components/MenuComponent.vue';
 // import SelectMultipleVue from './components/SelectMultiple.vue';
 export default {
   name: "App",
   components: {
     // SelectMultipleVue
-    EjemploCheckboxVue
+    // EjemploCheckboxVue,
+    MenuComponentVue
   },
 };
 </script>
@@ -24,6 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
