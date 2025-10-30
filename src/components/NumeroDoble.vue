@@ -16,8 +16,11 @@ export default {
     mounted(){
         this.numero = parseInt(this.$route.params.numero);
     },
-    updated(){
-        this.numero = parseInt(this.$route.params.numero);
+    watch: {
+        '$route.params.numero' (nextVal, oldVal){
+            this.numero = this.$route.params.numero;
+            console.log(nextVal, oldVal);
+        }
     }
 }
 </script>
