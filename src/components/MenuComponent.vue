@@ -6,6 +6,7 @@
       <li><router-link to="/numeros">Numeros</router-link></li>
       <li><router-link to="/doble">Doble sin alcohol</router-link></li>
       <li><router-link to="/doble/3">Doble de 3</router-link></li>
+      <li><button @click="redirectHome">Volver a home</button></li>
     </ul>
   </div>
   <hr/>
@@ -15,6 +16,11 @@
 <script>
 export default {
   name: "MenuComponent",
+  methods: {
+    redirectHome(){
+        this.$router.push("/");
+    }
+  }
 };
 </script>
 
